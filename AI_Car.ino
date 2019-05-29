@@ -23,22 +23,16 @@ int distance3;
 int distance4;
 int distance5;
 
-//Servo motor;            //Create ESC drive motor 'motor' and steering servo 'steer'
 int forward = A1;
 int reverse = A2;
 int left = A3;
 int right = A4;
-//Servo steer;
 
-int speedRead;          //Vars necessary to control the speed of the motor via the ESC.
+int speedRead;          //Vars necessary to control the speed of the motor
 int speedRemap;
 int forwardSpeed;
 int reverseSpeed;
 int speedCenter = 1500;
-
-const int neutral = 90;           //Steering servo positions for straight, left turns, and right turns. These can be changed and are set in degrees.
-const int steerRight = 40;
-const int steerLeft = 140;
 
 const int frontThreshold = 66;    //Thresholds for the different 'types' of sonar sensors -- front, front side, and side. These can be changed and are set in centimeters.
 const int frontSideThreshold = 45;
@@ -59,12 +53,9 @@ void setup() {
   pinMode(trig4, OUTPUT);
   pinMode(echo5, INPUT);
   pinMode(trig5, OUTPUT);
-  //motor.attach(12, 1000, 2000);           //Attaches motor to pin 12
-  //steer.attach(13);                       //Attaches steering servo to pin 13
-  //Serial.println("MOTOR ATTACHED");       //Prints a message for debug
+
   delay(500);
-  analogWrite(forward, forwardSpeed);
-  //motor.writeMicroseconds(forwardSpeed);  //Starts the car moving forward
+  analogWrite(forward, forwardSpeed); //Starts the car moving forward
 }
 
 void readFront(unsigned long duration) {        //Function called to read in front of car
